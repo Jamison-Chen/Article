@@ -1,4 +1,4 @@
-const backToHome = document.getElementById("back-to-home");
+const backToTop = document.getElementById("back-to-top");
 const allCategoryTags = document.getElementsByClassName("category-tag");
 const searchBtn = document.getElementById("search-btn");
 const searchBar = document.getElementById("search-bar");
@@ -57,15 +57,15 @@ function categoryFilter(e) {
 function renderArticleBlock(articleList) {
     main.innerHTML = "";
     for (let each of articleList) {
-        let block = document.createElement("div");
+        let block = document.createElement("a");
         block.classList.add("preview");
         block.classList.add(each.category);
-        block.setAttribute("data-url", `./articles/${each.title}.html`);
+        block.href = `./articles/${each.title}`;
 
         let imageContainer = document.createElement("div");
         imageContainer.classList.add("img-container");
         let img = document.createElement("img");
-        img.src = `./images/${each.title}.jpg`;
+        img.src = `./articles/${each.title}/images/${each.title}.jpg`;
         img.alt = "";
         img.srcset = "";
         imageContainer.appendChild(img);
@@ -100,7 +100,6 @@ function renderArticleBlock(articleList) {
 
         main.appendChild(block);
     }
-    setArticleLink();
 }
 
 async function showArticle(e) {
@@ -124,21 +123,10 @@ function search(e) {
     }
 }
 
-function setArticleLink() {
-    let allPreviews = document.getElementsByClassName("preview");
-    for (let each of allPreviews) {
-        each.addEventListener("click", goToArticle);
-    }
-}
-
-function goToArticle(e) {
-    window.location.assign(e.target.getAttribute('data-url'));
-}
-
 function run() {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        backToHome.style.display = "none";
-    } else backToHome.style.display = "flex";
+    // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    //     backToTop.style.display = "none";
+    // } else backToTop.style.display = "flex";
     searchBtn.addEventListener("click", controlSearchBar);
     searchBar.addEventListener("keyup", search);
     for (let each of allCategoryTags) {

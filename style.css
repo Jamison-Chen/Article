@@ -1,3 +1,17 @@
+:root {
+    --bgc: #FFF;
+    --noisyWhite: #eee;
+    --fgc: #000;
+    --lightGray: #bbb;
+    --gray: #888;
+    scroll-behavior: smooth;
+    cursor: default;
+    font-family: "微軟正黑體", sans-serif;
+    user-select: none;
+    --homeHeaderHeight: 15vh;
+    --homeFooterHeight: 15vh;
+}
+
 @media screen and (min-width:1024px) {
     :root {
         --rootFontSize: 2rem;
@@ -19,17 +33,56 @@
     }
 }
 
+a {
+    text-decoration: none !important;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    margin: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background: var(--lightGray);
+}
+
+.home-header {
+    height: var(--homeHeaderHeight);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#path {
+    display: inline;
+    margin: 0;
+}
+
+.part-of-path {
+    color: #999;
+    font-size: 2rem;
+    font-weight: 100;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
 #search-bar {
-    height: 70%;
+    height: 60%;
     font-size: 1rem;
-    color: #888;
+    color: var(--gray);
     border-radius: 50px;
     transition-duration: 300ms;
 }
 
 #search-bar.expanded {
     width: var(--w);
-    border: 2px solid #888;
+    border: 2px solid var(--gray);
 }
 
 #search-bar.folded {
@@ -41,20 +94,13 @@
     outline: none;
 }
 
-#back-to-home,
 #search-btn {
-    padding: 5px 10px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
-}
-
-#back-to-home:hover,
-#search-btn:hover {
-    background-color: #eee;
-}
-
-#back-to-home:active,
-#search-btn:active {
-    background-color: #ddd;
 }
 
 #main,
@@ -64,44 +110,36 @@
 
 .category-tag {
     font-size: max(0.9rem, var(--rootFontSize) * 0.5);
-    color: #000;
+    letter-spacing: 1px;
+    color: var(--fgc);
     border-bottom: 2px solid;
     border-bottom-color: transparent;
     transition-duration: 300ms;
 }
 
-.category-tag:hover {
-    text-shadow: 1px 1px 5px #ccc;
-}
-
-#category-all:hover,
 #category-all.active {
-    color: #888;
-    border-bottom-color: #888;
+    color: var(--gray);
+    border-bottom-color: var(--gray);
 }
 
-#category-economics:hover,
 #category-economics.active {
-    color: #ffb84d;
-    border-bottom-color: #ffb84d;
+    color: #ffbb00;
+    border-bottom-color: #ffbb00;
 }
 
-#category-programming:hover,
 #category-programming.active {
-    color: #10c100;
-    border-bottom-color: #10c100;
+    color: #1aa260;
+    border-bottom-color: #1aa260;
 }
 
-#category-ai:hover,
 #category-ai.active {
-    color: #4da6ff;
-    border-bottom-color: #4da6ff;
+    color: #4c8bf5;
+    border-bottom-color: #4c8bf5;
 }
 
-#category-others:hover,
 #category-others.active {
-    color: #f37bd9;
-    border-bottom-color: #f37bd9;
+    color: #dd4477;
+    border-bottom-color: #dd4477;
 }
 
 #main {
@@ -112,21 +150,13 @@
     position: relative;
     height: 400px;
     width: 100%;
+    display: block;
     border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 1px 1px 6px 2px #bbb;
+    background-color: var(--bgc);
+    box-shadow: 1px 1px 6px 2px var(--lightGray);
     margin: 0 0 50px 0;
     overflow: hidden;
     transition-duration: 100ms;
-}
-
-.preview:hover {
-    box-shadow: 5px 5px 18px 2px #bbb;
-    cursor: pointer;
-}
-
-.preview:active {
-    box-shadow: 1px 1px 3px 2px #aaa;
 }
 
 .img-container {
@@ -148,7 +178,9 @@
     width: 100%;
     font-size: var(--rootFontSize);
     font-weight: 900;
+    letter-spacing: 1px;
     padding: 0 3%;
+    color: var(--fgc);
 }
 
 .article-info {
@@ -157,7 +189,7 @@
     align-items: center;
     padding: 30px 0 0 0;
     font-size: 0.8rem;
-    color: #888;
+    color: var(--gray);
 }
 
 .article-info-label {
@@ -165,9 +197,10 @@
 }
 
 .article-content-preview {
-    color: #555;
+    color: #444;
     margin: 5%;
     font-size: max(0.9rem, var(--rootFontSize) * 0.5);
+    letter-spacing: 1px;
     line-height: 1.8rem;
     text-align: justify;
     text-justify: inter-ideograph;
@@ -186,8 +219,66 @@
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 95%);
 }
 
-#back-to-home {
+#back-to-top {
     position: fixed;
     bottom: 5%;
     right: 5%;
+    height: 40px;
+    width: 40px;
+    padding-left: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--gray);
+    z-index: 1000;
+}
+
+@media (hover: hover) {
+    .part-of-path:hover {
+        color: var(--gray);
+    }
+
+    #search-btn:hover {
+        background-color: var(--noisyWhite);
+    }
+
+    .category-tag:hover {
+        text-shadow: 0px 0px 15px var(--noisyWhite);
+    }
+
+    #category-all:hover {
+        color: var(--gray);
+        border-bottom-color: var(--gray);
+    }
+
+    #category-economics:hover {
+        color: #ffbb00;
+        border-bottom-color: #ffbb00;
+    }
+
+    #category-programming:hover {
+        color: #1aa260;
+        border-bottom-color: #1aa260;
+    }
+
+    #category-ai:hover {
+        color: #4c8bf5;
+        border-bottom-color: #4c8bf5;
+    }
+
+    #category-others:hover {
+        color: #dd4477;
+        border-bottom-color: #dd4477;
+    }
+
+    .preview:hover {
+        box-shadow: 5px 5px 18px 2px var(--lightGray);
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    #back-to-top:hover {
+        background-color: var(--noisyWhite);
+    }
 }
