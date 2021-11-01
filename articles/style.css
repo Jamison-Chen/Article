@@ -1,0 +1,194 @@
+:root {
+    --w: 100vw;
+}
+
+#main-img-container {
+    width: 100%;
+    height: calc(var(--w)*0.45);
+    position: relative;
+    overflow: hidden;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+#article-title {
+    position: absolute;
+    width: 100%;
+    font-weight: 900;
+    bottom: 15%;
+    font-size: var(--rootFontSize);
+}
+
+@media screen and (min-width:1024px) {
+    :root {
+        --rootFontSize: 3rem
+    }
+
+    #article-title {
+        padding: 0 20vw;
+    }
+
+    #article-info,
+    #recommended-article {
+        width: 60%;
+    }
+
+    #article-content {
+        --contextFontSize: calc(var(--rootFontSize) - 1rem);
+        width: 60%;
+    }
+}
+
+@media screen and (min-width:512px) and (max-width:1024px) {
+    :root {
+        --rootFontSize: 2.2rem
+    }
+
+    #article-title {
+        padding: 0 10vw;
+    }
+
+    #article-info,
+    #recommended-article {
+        width: 80%;
+    }
+
+    #article-content {
+        --contextFontSize: calc(var(--rootFontSize) - 0.2rem);
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:512px) {
+    :root {
+        --rootFontSize: 1.6rem
+    }
+
+    #article-title {
+        padding: 0 5vw;
+    }
+
+    #article-info,
+    #recommended-article {
+        width: 88%;
+    }
+
+    #article-content {
+        --contextFontSize: var(--rootFontSize);
+        width: 90%;
+    }
+}
+
+#article-info {
+    display: flex;
+    padding: 30px 0 0 0;
+    color: #888;
+}
+
+.article-info-label {
+    margin: 0 0 0 4%;
+    font-size: max(0.9rem, calc(var(--rootFontSize) / 3));
+}
+
+.article-info-label.name {
+    cursor: pointer;
+}
+
+.article-info-label.domain {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+
+.paragraph-title {
+    font-weight: 700;
+}
+
+.paragraph-title.tier-1 {
+    font-size: var(--contextFontSize);
+    text-align: center;
+    padding: 60px 0 20px 0;
+    letter-spacing: 5px;
+}
+
+.paragraph-title.tier-2 {
+    font-size: calc(var(--contextFontSize) * 1.4 / 2);
+    text-align: start;
+    padding: 20px 0 20px 0;
+    letter-spacing: 4px;
+}
+
+#article-content>section .paragraph::first-letter {
+    font-size: var(--contextFontSize);
+    letter-spacing: 10px;
+}
+
+/* Select all but the first section child of #article-content,
+and all but the first .paragraph descendent of #article-content>section, */
+#article-content>section .paragraph~.paragraph::first-letter,
+#article-content>section~section .paragraph::first-letter {
+    font-size: calc(var(--contextFontSize) * 1.2 / 2);
+    letter-spacing: 2px;
+}
+
+.paragraph {
+    padding: 20px 0;
+    letter-spacing: 2px;
+    line-height: 2.4rem;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    font-size: calc(var(--contextFontSize) * 1.2 / 2);
+    color: #333;
+    word-break: break-word;
+    cursor: default;
+    display: block;
+}
+
+.paragraph.formula {
+    text-align: center;
+    letter-spacing: 4px;
+    font-style: italic;
+}
+
+.paragraph.img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.paragraph.img>img {
+    width: 100%;
+}
+
+.word-comment {
+    color: #4da6ff;
+}
+
+.word-comment:hover {
+    cursor: pointer;
+}
+
+#recommended-article {
+    margin: 100px 0;
+    padding: 0;
+    font-size: calc(var(--contextFontSize) * 1.2 / 2);
+}
+
+#back-bar {
+    position: fixed;
+    bottom: 3%;
+    right: 5%;
+}
+
+#back-bar a {
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+#back-bar a:hover {
+    background-color: #eee;
+}
+
+#back-bar a:active {
+    background-color: #ddd;
+}
