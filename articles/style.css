@@ -1,79 +1,107 @@
 :root {
     --w: 100vw;
-    --lightGray: #bbb;
+    --gray: #bbb;
+    --lightGray: #eee;
+    --blue: #4c8bf5;
+    font-family: "微軟正黑體", sans-serif;
+}
+
+::selection {
+    color: #000;
+    background: rgb(255, 187, 0);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+sub {
+    font-size: 0.5rem;
 }
 
 #main-img-container {
     width: 100%;
-    height: calc(var(--w)*0.45);
+    height: calc(var(--w) * 0.45);
     position: relative;
     overflow: hidden;
     background-size: 100%;
     background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-img-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #00000050;
 }
 
 #article-title {
-    position: absolute;
+    line-height: calc(var(--rootFontSize) * 1.5);
+    letter-spacing: 3px;
+    margin: 2% 0 0 0;
     width: 100%;
     font-weight: 900;
-    bottom: 15%;
+    color: var(--lightGray);
+    z-index: 1000;
     font-size: var(--rootFontSize);
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
     :root {
-        --rootFontSize: 3rem
+        --rootFontSize: 3rem;
     }
-
     #article-title {
         padding: 0 20vw;
     }
-
     #article-info,
     #recommended-article {
         width: 60%;
     }
-
     #article-content {
         --contextFontSize: calc(var(--rootFontSize) - 1rem);
         width: 60%;
     }
 }
 
-@media screen and (min-width:512px) and (max-width:1024px) {
+@media screen and (min-width: 512px) and (max-width: 1024px) {
     :root {
-        --rootFontSize: 2.2rem
+        --rootFontSize: 2.2rem;
     }
-
     #article-title {
         padding: 0 10vw;
     }
-
     #article-info,
     #recommended-article {
         width: 80%;
     }
-
     #article-content {
         --contextFontSize: calc(var(--rootFontSize) - 0.2rem);
         width: 80%;
     }
 }
 
-@media screen and (max-width:512px) {
+@media screen and (max-width: 512px) {
     :root {
-        --rootFontSize: 1.6rem
+        --rootFontSize: 1.6rem;
     }
-
     #article-title {
         padding: 0 5vw;
     }
-
     #article-info,
     #recommended-article {
         width: 88%;
     }
-
     #article-content {
         --contextFontSize: var(--rootFontSize);
         width: 90%;
@@ -91,7 +119,7 @@
 
 ::-webkit-scrollbar-thumb {
     border-radius: 100px;
-    background: var(--lightGray);
+    background: var(--gray);
 }
 
 #article-info {
@@ -133,15 +161,15 @@
     letter-spacing: 4px;
 }
 
-#article-content>section .paragraph::first-letter {
+#article-content > section .paragraph::first-letter {
     font-size: var(--contextFontSize);
     letter-spacing: 10px;
 }
 
 /* Select all but the first section child of #article-content,
 and all but the first .paragraph descendent of #article-content>section, */
-#article-content>section .paragraph~.paragraph::first-letter,
-#article-content>section~section .paragraph::first-letter {
+#article-content > section .paragraph ~ .paragraph::first-letter,
+#article-content > section ~ section .paragraph::first-letter {
     font-size: calc(var(--contextFontSize) * 1.2 / 2);
     letter-spacing: 2px;
 }
@@ -163,6 +191,8 @@ and all but the first .paragraph descendent of #article-content>section, */
     text-align: center;
     letter-spacing: 4px;
     font-style: italic;
+    font-family: "Cambria Math", Cochin, Georgia, Times, "Times New Roman",
+        serif;
 }
 
 .paragraph.img {
@@ -171,12 +201,12 @@ and all but the first .paragraph descendent of #article-content>section, */
     align-items: center;
 }
 
-.paragraph.img>img {
+.paragraph.img > img {
     width: 100%;
 }
 
 .word-comment {
-    color: #4da6ff;
+    color: var(--blue);
 }
 
 .word-comment:hover {
@@ -206,5 +236,5 @@ and all but the first .paragraph descendent of #article-content>section, */
 }
 
 .back-bar-btn:hover {
-    background-color: #eee;
+    background-color: var(--lightGray);
 }
