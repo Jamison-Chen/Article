@@ -1,7 +1,11 @@
 // let windowWidth;
 const backBar = document.getElementById("back-bar");
 
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+    )
+) {
     backBar.style.display = "none";
 } else {
     backBar.style.display = "flex";
