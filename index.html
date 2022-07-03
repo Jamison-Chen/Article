@@ -20,7 +20,7 @@
             integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
             crossorigin="anonymous"
         ></script>
-        <script type="module" src="./style.mjs" defer></script>
+        <script type="module" src="./my_modules/script.js" defer></script>
         <link rel="SHORTCUT ICON" href="/favicon.ico" />
         <title>陳秉洋 Jamison Chen</title>
     </head>
@@ -54,6 +54,7 @@
             id="search"
             class="w-100 d-flex p-3 justify-content-center align-items-center"
         >
+            <input type="text" id="search-bar" class="text-center folded" />
             <div id="search-btn">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +69,6 @@
                     />
                 </svg>
             </div>
-            <input type="text" id="search-bar" class="text-center folded" />
         </div>
         <div id="main" class="p-0"></div>
         <a href="#" id="back-to-top" class="back-bar-btn">
