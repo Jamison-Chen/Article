@@ -1,14 +1,12 @@
+@use "../global_variables" as _;
+
 :root {
     --w: 100vw;
-    --gray: #bbb;
-    --lightGray: #eee;
-    --blue: #4c8bf5;
-    font-family: "微軟正黑體", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 ::selection {
-    color: #000;
-    background: rgb(255, 187, 0);
+    background: rgb(255, 247, 174);
 }
 
 body {
@@ -43,7 +41,8 @@ sub {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #00000050;
+    background-color: _.$black;
+    opacity: 0.5;
 }
 
 #article-title {
@@ -52,7 +51,7 @@ sub {
     margin: 2% 0 0 0;
     width: 100%;
     font-weight: 900;
-    color: var(--lightGray);
+    color: _.$noisyWhite;
     z-index: 1000;
     font-size: var(--rootFontSize);
 }
@@ -119,13 +118,13 @@ sub {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 100px;
-    background: var(--gray);
+    background: _.$lightGray;
 }
 
 #article-info {
     display: flex;
     padding: 30px 0 0 0;
-    color: #888;
+    color: _.$gray;
 }
 
 .article-info-label {
@@ -181,7 +180,7 @@ and all but the first .paragraph descendent of #article-content>section, */
     text-align: justify;
     text-justify: inter-ideograph;
     font-size: calc(var(--contextFontSize) * 1.2 / 2);
-    color: #333;
+    color: _.$deepGray;
     word-break: break-word;
     cursor: default;
     display: block;
@@ -206,7 +205,7 @@ and all but the first .paragraph descendent of #article-content>section, */
 }
 
 .word-comment {
-    color: var(--blue);
+    color: _.$blue;
 }
 
 .word-comment:hover {
@@ -233,8 +232,9 @@ and all but the first .paragraph descendent of #article-content>section, */
     align-items: center;
     margin: 0 5px;
     border-radius: 50%;
+    color: _.$gray;
 }
 
 .back-bar-btn:hover {
-    background-color: var(--lightGray);
+    background-color: _.$noisyWhite;
 }
